@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flexbox Calculator</title>
+  <style>
+    .calculator {
+      height: auto;
+      width: 300px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #3d5c5c;
+      font-family: Arial, sans-serif;
+    }
+
+    .calculator input[type="text"] {
+      width: 98%;
+      margin-bottom: 10px;
+      padding: 5px;
+      font-size: 16px;
+    }
+
+    .calculator .row {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .calculator .row div {
+      flex: 1;
+      margin: 1px;
+    }
+
+    .calculator input[type="button"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="result" readonly>
+    <div class="row">
+      <div><input type="button" value="7"></div>
+      <div><input type="button" value="8"></div>
+      <div><input type="button" value="9"></div>
+      <div><input type="button" value="/"></div>
+    </div>
+    <div class="row">
+      <div><input type="button" value="4"></div>
+      <div><input type="button" value="5"></div>
+      <div><input type="button" value="6"></div>
+      <div><input type="button" value="*"></div>
+    </div>
+    <div class="row">
+      <div><input type="button" value="1"></div>
+      <div><input type="button" value="2"></div>
+      <div><input type="button" value="3"></div>
+      <div><input type="button" value="-"></div>
+    </div>
+    <div class="row">
+      <div><input type="button" value="0"></div>
+      <div><input type="button" value="."></div>
+      <div><input type="button" value="="></div>
+      <div><input type="button" value="+"></div>
+    </div>
+    <div class="row">
+      <div><input type="button" value="sin"></div>
+      <div><input type="button" value="cos"></div>
+      <div><input type="button" value="tan"></div>
+      <div><input type="button" value="sqrt"></div>
+    </div>
+    <div class="row">
+      <div><input type="button" value="log"></div>
+      <div><input type="button" value="ln"></div>
+      <div><input type="button" value="^"></div>
+      <div><input type="button" value="clear"></div>
+    </div>
+  </div>
+</body>
+</html>
