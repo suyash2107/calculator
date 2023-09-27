@@ -40,41 +40,63 @@
   <div class="calculator">
     <input type="text" id="result" readonly>
     <div class="row">
-      <div><input type="button" value="7"></div>
-      <div><input type="button" value="8"></div>
-      <div><input type="button" value="9"></div>
-      <div><input type="button" value="/"></div>
+      <div><input type="button" value="7" onclick="appendToExpression('7')"></div>
+      <div><input type="button" value="8" onclick="appendToExpression('8')"></div>
+      <div><input type="button" value="9" onclick="appendToExpression('9')"></div>
+      <div><input type="button" value="/" onclick="appendToExpression('/')"></div>
     </div>
     <div class="row">
-      <div><input type="button" value="4"></div>
-      <div><input type="button" value="5"></div>
-      <div><input type="button" value="6"></div>
-      <div><input type="button" value="*"></div>
+      <div><input type="button" value="4" onclick="appendToExpression('4')"></div>
+      <div><input type="button" value="5" onclick="appendToExpression('5')"></div>
+      <div><input type="button" value="6" onclick="appendToExpression('6')"></div>
+      <div><input type="button" value="*" onclick="appendToExpression('*')"></div>
     </div>
     <div class="row">
-      <div><input type="button" value="1"></div>
-      <div><input type="button" value="2"></div>
-      <div><input type="button" value="3"></div>
-      <div><input type="button" value="-"></div>
+      <div><input type="button" value="1" onclick="appendToExpression('1')"></div>
+      <div><input type="button" value="2" onclick="appendToExpression('2')"></div>
+      <div><input type="button" value="3" onclick="appendToExpression('3')"></div>
+      <div><input type="button" value="-" onclick="appendToExpression('-')"></div>
     </div>
     <div class="row">
-      <div><input type="button" value="0"></div>
-      <div><input type="button" value="."></div>
-      <div><input type="button" value="="></div>
-      <div><input type="button" value="+"></div>
+      <div><input type="button" value="0" onclick="appendToExpression('0')"></div>
+      <div><input type="button" value="." onclick="appendToExpression('.')"></div>
+      <div><input type="button" value="=" onclick="evaluateExpression()"></div>
+      <div><input type="button" value="+" onclick="appendToExpression('+')"></div>
     </div>
     <div class="row">
-      <div><input type="button" value="sin"></div>
-      <div><input type="button" value="cos"></div>
-      <div><input type="button" value="tan"></div>
-      <div><input type="button" value="sqrt"></div>
+      <div><input type="button" value="sin" onclick="appendToExpression('sin(')"></div>
+      <div><input type="button" value="cos" onclick="appendToExpression('cos(')"></div>
+      <div><input type="button" value="tan" onclick="appendToExpression('tan(')"></div>
+      <div><input type="button" value="sqrt" onclick="appendToExpression('sqrt(')"></div>
     </div>
     <div class="row">
-      <div><input type="button" value="log"></div>
-      <div><input type="button" value="ln"></div>
-      <div><input type="button" value="^"></div>
-      <div><input type="button" value="clear"></div>
+      <div><input type="button" value="log" onclick="appendToExpression('log(')"></div>
+      <div><input type="button" value="ln" onclick="appendToExpression('ln(')"></div>
+      <div><input type="button" value="^" onclick="appendToExpression('^')"></div>
+      <div><input type="button" value="clear" onclick="clearExpression()"></div>
     </div>
   </div>
+
+  <script>
+    function appendToExpression(value) {
+      var result = document.getElementById("result");
+      result.value += value;
+    }
+
+    function evaluateExpression() {
+      try {
+        var result = document.getElementById("result");
+        var expression = result.value;
+        result.value = eval(expression);
+      } catch (error) {
+        result.value = "Invalid expression";
+      }
+    }
+
+    function clearExpression() {
+      var result = document.getElementById("result");
+      result.value = '';
+    }
+  </script>
 </body>
 </html>
